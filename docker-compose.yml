@@ -1,9 +1,9 @@
 version: "3"
 services:
-  app:
+  back:
     build: .
     ports:
       - "5000:5000"
-    container_name: app
+    container_name: back
     volumes:
       - ./src:/usr/src/app
