@@ -4,7 +4,7 @@
 
 # 構成図
 
-![](image.png)
+![](image_.png)
 
 # 動作例
 
