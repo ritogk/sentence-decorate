@@ -2,9 +2,7 @@
 
 from flask import Flask
 from service.spacy import Spacy
-from flask import Flask, Response, make_response, request, jsonify
-import json
-
+from flask import Flask, make_response, request, jsonify
 
 app = Flask(__name__)
 spacy = Spacy()

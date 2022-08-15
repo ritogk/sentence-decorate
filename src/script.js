@@ -1,14 +1,16 @@
-async function test() {
+async function decorate() {
+  const serverOrigin = 'https://c521-126-167-41-14.ngrok.io';
+  
   const cells = document.getElementsByTagName("p")
-
   for (var i in cells) {
     let innnerHtml = cells[i].innerHTML
     const innerText = cells[i].innerText
 
     if (innerText.length < 15) continue
+
     const params = { sentents: innerText }
     const query = new URLSearchParams(params)
-    response = await fetch(`https://c521-126-167-41-14.ngrok.io?${query}`, {
+    response = await fetch(`${serverOrigin}?${query}`, {
       method: "GET",
       mode: "cors",
     })
@@ -18,7 +20,7 @@ async function test() {
       .then((data) => {
         if (!data) return
         for (var c in data) {
-          // 述語
+          // 述語に色を付ける
           predicates = data[c].predicates
           for (var j in predicates) {
             innnerHtml = innnerHtml.replace(
@@ -28,7 +30,7 @@ async function test() {
             cells[i].innerHTML = innnerHtml
           }
 
-          // 目的語
+          // 目的語に色を付ける
           objects = data[c].objects
           for (var j in objects) {
             innnerHtml = innnerHtml.replace(
@@ -37,14 +39,8 @@ async function test() {
             )
             cells[i].innerHTML = innnerHtml
           }
-          console.log(data[c].sentent)
-          if (
-            data[c].sentent ==
-            "高市氏は10日の内閣改造・党役員人事で自民党政調会長を辞し、経済安保担当相に就任"
-          ) {
-            debugger
-          }
-          // 主語
+
+          // 主語に色を付ける
           subjects = data[c].subjects
           for (var j in subjects) {
             innnerHtml = innnerHtml.replace(
@@ -55,6 +51,5 @@ async function test() {
           }
         }
       })
-    console.log(response)
   }
 }
