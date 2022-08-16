@@ -14,7 +14,7 @@ sequenceDiagram
 	loop 画面のpタグ要素
 		webページ->>サーバー:request<br> param:[sentents=彼女は公園を食べる]
 		サーバー->>サーバー:構文解析
-		サーバー->>webページ:response <br>[{主語:[1, 2], 述語:[3,4], 目的語:[5.6]}]
+		サーバー->>webページ:response <br>[{主語:[彼女], 述語:[食べる], 目的語:[公園]}]
 		webページ->>webページ:主語、述語、目的語の色を変える
 	end
 ```
