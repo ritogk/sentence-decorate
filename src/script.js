@@ -10,7 +10,7 @@ async function decorate() {
 
     const params = { sentents: innerText }
     const query = new URLSearchParams(params)
-    response = await fetch(`${serverOrigin}?${query}`, {
+    response = await fetch(`${serverOrigin}/spacy?${query}`, {
       method: "GET",
       mode: "cors",
     })
