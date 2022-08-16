@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from spacy_controller import SpacyController
+from controllers.spacy_controller import SpacyController
 routes = Blueprint("routes", __name__)
 
 spacy_controller = SpacyController()
